@@ -1,0 +1,32 @@
+برنامه ای بنویسید اگر کاربر یک رشته به فرمت زیر 
+"1234,122342,yuer"
+
+وارد کرد بعد در خروجی کنسول 
+index 0 : 4 len
+index 1:  6 len
+index 2 : 4 len
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+int main() {
+    string input_string;
+    cout << "لطفا رشته را وارد کنید: ";
+    getline(cin, input_string);
+
+    vector<string> input_list;
+    size_t pos = 0;
+    while ((pos = input_string.find(",")) != string::npos) {
+        string token = input_string.substr(0, pos);
+        input_list.push_back(token);
+        input_string.erase(0, pos + 1);
+    }
+    input_list.push_back(input_string);
+
+    for (size_t i = 0; i < input_list.size(); i++) {
+        cout << "index " << i << ": " << input_list[i].size() << " len" << endl;
+    }
+
+    return 0;
+}
