@@ -1,0 +1,33 @@
+برنامه لاگین را با استفاده از کنسول پیاده سازی نمایید.
+
+توضیح:یک ارایه تعریف کنید با چند عنصر . برنامه که اجرا شد از کاربر یه اسم بگیرد اگر اسم در آرایه بود  در خروجی بگوید با موفقیت وارد شدید و اگر اسم در ارایه نبود ، اسم را به ارایه اضافه کند و به کاربر جدید و اسم آن را چاپ کند
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    vector<string> users = {"Ali", "sadegh", "mohammad"};
+    string username;
+
+    cout << "لطفا نام کاربری خود را وارد کنید: ";
+    cin >> username;
+
+    bool user_found = false;
+    for (const string& user : users) {
+        if (user == username) {
+            user_found = true;
+            break;
+        }
+    }
+
+    if (user_found) {
+        cout << "با موفقیت وارد شدید!" << endl;
+    } else {
+        users.push_back(username);
+        cout << "کاربر جدید با نام \"" << username << "\" اضافه شد." << endl;
+    }
+
+    return 0;
+}
