@@ -1,0 +1,21 @@
+نام و نام خانوادگی خود را با استفاده از کارکتر های اسکی  چاپ آن را با زبان برنامه نویسی پیاده سازی کنید.
+#include <iostream>
+
+int main() {
+    char firstName[] = {'M', 'a', 'h', 'd', 'i', 's'};
+    char lastName[] = {'S', 'o', 'o', 'r', 'i'};
+
+    std::cout << "نام: ";
+    for (char letter : firstName) {
+        std::cout << letter;
+    }
+
+    std::cout << "\nنام خانوادگی: ";
+    for (char letter : lastName) {
+        std::cout << letter;
+    }
+
+    std::cout << std::endl;
+
+    return 0;
+}
