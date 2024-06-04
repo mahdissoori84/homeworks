@@ -1,0 +1,35 @@
+10 عدد تصادفی درست کنید.
+الف: میانگین آن را حساب کنید.
+ب:واریانس آن را حساب کنید.
+ج:انحراف معیار آن را حساب کنید.
+فرمول آن را با برنامه نویسی پیاده سازی کنید و داده ها را به آن دهید و خروجی آن را بدست آورید.
+#include <iostream>
+#include <cmath>
+
+int main() {
+    int numbers[] = {12, 23, 34, 45, 56, 67, 78, 89, 90, 100};
+    int n = sizeof(numbers) / sizeof(numbers[0]);
+
+    // Calculate mean
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += numbers[i];
+    }
+    double mean = static_cast<double>(sum) / n;
+
+    // Calculate variance
+    double variance = 0;
+    for (int i = 0; i < n; i++) {
+        variance += pow(numbers[i] - mean, 2);
+    }
+    variance /= n;
+
+    // Calculate standard deviation
+    double standardDeviation = sqrt(variance);
+
+    std::cout << "Mean: " << mean << std::endl;
+    std::cout << "Variance: " << variance << std::endl;
+    std::cout << "Standard Deviation: " << standardDeviation << std::endl;
+
+    return 0;
+}
