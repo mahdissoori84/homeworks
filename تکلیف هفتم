@@ -1,0 +1,49 @@
+10 عدد بصورت تصادفی درست کنید.
+
+الف: کوچکترین و بزرگترین عدد را بصورت برنامه نویسی و بدون هیچ تابع اضافی استخراج کنید.
+
+ب:این 10 عدد را بصورت کوچکترین تا بزرگترین عدد تنظیم کنید و در خروجی چاپ کنید.
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+int main() {
+    // تولید 10 عدد تصادفی
+    int numbers[10];
+    srand(time(0));  // تنظیم seed برای تولید اعداد تصادفی
+    for (int i = 0; i < 10; i++) {
+        numbers[i] = rand() % 100;  // اعداد تصادفی بین 0 و 99
+    }
+
+    // استخراج کوچکترین و بزرگترین عدد
+    int min = numbers[0];
+    int max = numbers[0];
+    for (int i = 1; i < 10; i++) {
+        if (numbers[i] < min) {
+            min = numbers[i];
+        }
+        if (numbers[i] > max) {
+            max = numbers[i];
+        }
+    }
+    std::cout << "کوچکترین عدد: " << min << std::endl;
+    std::cout << "بزرگترین عدد: " << max << std::endl;
+
+    // مرتب‌سازی و چاپ کردن اعداد
+    for (int i = 0; i < 9; i++) {
+        for (int j = i + 1; j < 10; j++) {
+            if (numbers[i] > numbers[j]) {
+                int temp = numbers[i];
+                numbers[i] = numbers[j];
+                numbers[j] = temp;
+            }
+        }
+    }
+    std::cout << "اعداد مرتب شده: ";
+    for (int i = 0; i < 10; i++) {
+        std::cout << numbers[i] << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
